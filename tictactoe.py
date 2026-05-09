@@ -28,15 +28,7 @@ def draw_lines():
 def check_winner(board):
     winner = None
     counter = 0
-
-    for i in range(3):
-        for j in range(3):
-            if board[i][j].symbol != None:
-                counter += 1
-    if counter == 9 and winner == None:
-        return "draw"
-                
-            
+    
     for i in range(3):
         if board[i][0].symbol == board[i][1].symbol == board[i][2].symbol != None:
             winner = board[i][0].symbol
@@ -48,6 +40,13 @@ def check_winner(board):
     if board[0][2].symbol == board[1][1].symbol == board[2][0].symbol != None:
         winner = board[0][2].symbol
 
+    for i in range(3):
+        for j in range(3):
+            if board[i][j].symbol != None:
+                counter += 1
+    if counter == 9 and winner == None:
+        return "draw"
+    
     return winner
 
 def show_winner(winner):
