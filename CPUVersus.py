@@ -1,6 +1,5 @@
 import pygame
 import numpy as np
-import sys
 import json
 
 class AI_system:
