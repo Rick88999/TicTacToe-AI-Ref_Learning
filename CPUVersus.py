@@ -28,7 +28,7 @@ class AI_system:
                 nozero_moves = np.where(moves == 0, -np.inf, moves)
                 i, j = np.unravel_index(np.argmax(nozero_moves), moves.shape)
                 self.mosse.append((id, i, j))
-                return i, j
+                return id, i, j
             
         return None
     
@@ -47,7 +47,7 @@ class AI_system:
                 self.AIData[id][1][i][j] += 0.05
         
         with open("AIData.json", "w") as f:
-            json.dump(self.AIData, f)
+            json.dump(self.AIData, f, indent=4)
         print("AIData aggiornato con risultato:", result)
 
 
