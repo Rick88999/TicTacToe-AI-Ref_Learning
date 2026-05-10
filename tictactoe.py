@@ -54,14 +54,17 @@ def show_winner(winner):
         AI_system.setNewData("lose")
         time.sleep(2)
         pygame.quit()
+        sys.exit()
     elif winner == "O":
         AI_system.setNewData("win")
         time.sleep(2)
         pygame.quit()
+        sys.exit()
     elif winner == "draw":
         AI_system.setNewData("draw")
         time.sleep(2)
         pygame.quit()
+        sys.exit()
     
     
 class game:
@@ -148,7 +151,8 @@ while True:
             show_winner(check_winner(gameManager.getBoard()))
             AI_responde = AI_system.respondeMove(gameManager.getBoard())
             if AI_responde is not None:
-                i, j = AI_responde
+                id, i, j = AI_responde
+                print("MOSSA=> ID: ", id, " R: ", i, " C: ", j)
                 box = gameManager.getBoard()[i][j]
                 box.symbol = 'O'
                 box.drawO()
